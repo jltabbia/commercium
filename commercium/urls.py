@@ -3,7 +3,7 @@ from django.urls import path,include
 from .views import HomeView, cerrarSesion
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
-# from centroCosto import urls
+from proveedores import urls
 # from conceptos import urls
 
 urlpatterns = [
@@ -11,7 +11,6 @@ urlpatterns = [
     path('',HomeView,name='index'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('salir/',cerrarSesion,name='salir'),
-  #  path('centroCosto/',include('centroCosto.urls', namespace='centroCosto')),
-  #  path('conceptos/',include('conceptos.urls', namespace='conceptos')),
-
+    path('proveedores/',include('proveedores.urls', namespace='proveedores')),
+    
 ]

@@ -1,2 +1,2 @@
 TITULO="Commercium"
-DESCRIPCION="Sistema de gestión de Stock, Facturación y Bancos"
+DESCRIPCION="Sistema de gestión de Stock, Ventas y Bancos"
