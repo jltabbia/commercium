@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'usuarios',
     'empresa',
-    'global',
+    'globales',
     'proveedores',
+    'productos',
 ]
 
 MIDDLEWARE = [

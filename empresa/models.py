@@ -5,8 +5,8 @@ class Empresa(models.Model):
     codigo=models.CharField('Código', max_length=4,null=False,blank=False)
     nombre=models.CharField('Nombre de la Empresa',max_length=100,null=False,blank=False)
     domicilio=models.CharField('Domicilio', max_length=100,null=False,blank=False)
-    provincia=models.ForeignKey('global.Provincias',on_delete=models.CASCADE)
-    localidad=models.ForeignKey('global.Localidades',on_delete=models.CASCADE)
+    provincia=models.ForeignKey('globales.Provincias',on_delete=models.CASCADE)
+    localidad=models.ForeignKey('globales.Localidades',on_delete=models.CASCADE)
             
     def __str__(self):
         return '%s,%s,%s,%s,%s,%s' % (self.id, self.codigo, self.nombre, self.domicilio, self.provincia, self.localidad)

@@ -3,31 +3,39 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import Proveedores
 from empresa.models import Empresa  
+from globales.models import Provincias,Localidades
 from static import globales
 
 import datetime 
 import decimal
 
 def ProveedorHomeView(request):
-    
-    #pro=Proveedores.objects.raw("SELECT * FROM proveedores")
+
+    provincias=Provincias.objects.raw("SELECT * FROM provincias ORDER BY nombre")
+    localidades=Localidades.objects.raw("SELECT * FROM localidades")
+    proveedor=Proveedores.objects.raw("SELECT * FROM proveedores")
     empresa=Empresa.objects.raw("SELECT * FROM empresa")
     
-    
     context={
-     #   'Proveedores' : pro,
+        'Proveedores' : proveedor,
         'emp' : empresa,
+        'prov' : provincias,
+        'localidades' : localidades,
     }
     return render(request,'proveedores/index.html',context)
-
+    
 class ProveedorView(View):
     def get(self,request,*args,**kwargs):
+        provincias=Provincias.objects.raw("SELECT * FROM provincias ORDER BY nombre")
+        localidades=Localidades.objects.raw("SELECT * FROM localidades")
         proveedor=Proveedores.objects.raw("SELECT * FROM proveedores")
         empresa=Empresa.objects.raw("SELECT * FROM empresa")
         
         context={
             'Proveedores' : proveedor,
             'emp' : empresa,
+            'prov' : provincias,
+            'localidades' : localidades,
         }
         return render(request,'proveedores/proveedor.html',context)
     
